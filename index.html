@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bate Papo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cabeçalho com logo e ícone de usuários -->
+    <div class="topo">
+        <img src="imagens/logo.png" alt="Logo" class="imgLeft">
+        <a href="#" onclick="alternarMenuLateral()">
+            <img src="imagens/people.jpg" alt="Abrir menu" class="imgRight">
+        </a>
+    </div>
+
+    <!-- Menu Lateral -->
+    <div class="menuLateral">
+        <button onclick="alternarMenuLateral()" >Voltar</button>
+        <div class="titulo">Escolha um contato para enviar mensagem:</div>
+        <div class="opcao">
+            <span>Todos</span>
+            <input type="checkbox" checked>
+        </div>
+        <div class="opcao">
+            <span>João</span>
+            <input type="checkbox">
+        </div>
+        <div class="opcao">
+            <span>Maria</span>
+            <input type="checkbox">
+        </div>
+
+        <div class="titulo">Escolha a visibilidade:</div>
+        <div class="opcao checkbox">
+            <input type="radio" name="visibilidade" checked> Público
+        </div>
+        <div class="opcao checkbox">
+            <input type="radio" name="visibilidade"> Reservadamente
+        </div>
+    </div>
+
+    <!-- Conteúdo da conversa -->
+    <div class="chatContainer">
+        <div class="mensagem sistema">09:21:45 <strong>João</strong> entra na sala...</div>
+        <div class="mensagem publica">09:22:28 <strong>João</strong> para <strong>Todos</strong>: Bom dia</div>
+        <div class="mensagem publica">09:22:38 <strong>Maria</strong> para <strong>João</strong>: Oi João :</div>
+        <div class="mensagem reservada">09:22:48 <strong>João</strong> reservadamente para <strong>Maria</strong>: Oi gatinha, quer tc?</div>
+        <div class="mensagem sistema">09:22:58 <strong>Maria</strong> sai da sala...</div>
+    </div>
+<div class="footer">
+    <input type="text" placeholder="Escreva aqui..." class="inputMensagem">
+    <span class="destinoMensagem">Enviando para Todos (público)</span>
+    <button class="botaoEnviar">
+        <img src="imagens/send-img.jpeg" alt="Enviar">
+    </button>
+</div>
+    <!-- Script para alternar o menu -->
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- Rodapé fixo para enviar mensagens -->
+
