@@ -5,15 +5,26 @@ function alternarMenuLateral() {
 
 let userName = "";
 
-// Função para solicitar o nome do usuário
-function solicitarNomeUsuario() {
-    // Solicite o nome do usuário
-    userName = prompt("Por favor, insira seu nome:");
 
-    // Certifique-se de que o nome foi inserido
-    while (!userName) {
-        userName = prompt("Nome inválido! Por favor, insira seu nome:");
-    }
+function entrarSala(nome) {
+    fetch("https://mock-api.driven.com.br/api/v6/uol/participants/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name: nome, uuid: "83d50a6e-022b-4329-bb47-62beec649971" })
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log("Usuário entrou na sala com sucesso");
+        } else {
+            alert("Nome já está em uso, escolha outro.");
+            solicitarNomeUsuario(); // Solicita um novo nome se o atual já está em uso
+        }
+    })
+    .catch(error => {
+        console.error("Erro ao entrar na sala:", error);
+    });
 }
 
 // Função para renderizar o chat
