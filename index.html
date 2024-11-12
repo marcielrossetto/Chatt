@@ -43,7 +43,7 @@
 
     <!-- Conteúdo da conversa -->
     <div class="chatContainer">
-        <div class="mensagem sistema">09:21:45 <strong>João</strong> entra na sala...</div>
+        <div class="mensagemChatt ">09:21:45 <strong>João</strong> entra na sala...</div>
         <div class="mensagem publica">09:22:28 <strong>João</strong> para <strong>Todos</strong>: Bom dia</div>
         <div class="mensagem publica">09:22:38 <strong>Maria</strong> para <strong>João</strong>: Oi João :</div>
         <div class="mensagem reservada">09:22:48 <strong>João</strong> reservadamente para <strong>Maria</strong>: Oi gatinha, quer tc?</div>
@@ -52,11 +52,11 @@
 <div class="footer">
     <input type="text" placeholder="Escreva aqui..." class="inputMensagem">
     <span class="destinoMensagem">Enviando para Todos (público)</span>
-    <button class="botaoEnviar">
+    <button onclick="adicionarChatt()" class="botaoEnviar">
         <img src="imagens/send-img.jpeg" alt="Enviar">
     </button>
 </div>
-    <!-- Script para alternar o menu -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

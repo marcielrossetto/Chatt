@@ -16,8 +16,8 @@ body {
 }
 
 .imgLeft, .imgRight {
-    height: 40px;
-    width: 40px;
+    height: 60px;
+    width: 65px;
 }
 
 .chatContainer {
@@ -107,6 +107,11 @@ body {
 
 .menuLateral .checkbox input {
     margin-right: 10px;
+}
+.menuLateral button{
+    margin: 10px;
+    background-color: cornflowerblue;
+    border-radius: 12px;
 }
 
 /* Estilo do rodapé fixo */
