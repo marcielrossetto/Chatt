@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
     sidebar.classList.toggle("active");
@@ -149,6 +148,3 @@ function toggleSidebar() {
 }
 
 promptUserName();
-=======
-
->>>>>>> 50d1c5939e29517e5bfb4b0eb2d5f7d5d8ab16ad
