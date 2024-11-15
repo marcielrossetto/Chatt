@@ -37,7 +37,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color:#ffffff;
+    background-color: rgba(0, 0, 0, 0.5);
     display: none; /* Escondido inicialmente */
     z-index: 3; /* Colocado acima do menu lateral */
 }
@@ -127,7 +127,7 @@ body {
 
 .chatContainer {
     padding: 20px;
-    max-width: 800px;
+    max-width: 400px;
     margin: 0 auto;
     margin-bottom: 80px;
     overflow-y: auto;
@@ -135,7 +135,7 @@ body {
 }
 
 .mensagem {
-    padding: 15px 12px;
+    padding: 8px 12px;
     border-radius: 5px;
     margin: 5px 0;
     font-size: 14px;
