@@ -1,28 +1,48 @@
 function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    sidebar.classList.toggle("active");
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    if (overlay.style.display === 'block') {
+        sidebar.style.right = '-250px';
+        overlay.style.display = 'none';
+    } else {
+        sidebar.style.right = '0';
+        overlay.style.display = 'block';
+    }
 }
+
 function sendMessage() {
     const messageInput = document.getElementById('messageInput');
     const message = messageInput.value.trim();
 
     if (message) {
-        console.log("Mensagem enviada:", message);
-        messageInput.value = '';
-      }
+        const messageData = {
+            from: userName,
+            to: destination,
+            text: message,
+            type: visibility === 'Reservadamente' ? 'private_message' : 'message'
+        };
+
+        axios.post(`https://mock-api.driven.com.br/api/v6/uol/messages/${UUID}`, messageData)
+            .then(() => {
+                messageInput.value = '';
+                loadMessages(); // Recarrega as mensagens após o envio
+            })
+            .catch(() => location.reload());
+    }
 }
 
-document.getElementById('messageInput').addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') { 
+document.getElementById('messageInput').addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
         event.preventDefault();
-        sendMessage(); 
+        sendMessage(); // Envia a mensagem quando pressionar "Enter"
     }
 });
 
-const UUID = "e4ec1db4-1587-492a-945f-6cc04b0b533d";
+const UUID = "e4ec1db4-1587-492a-945f-6cc04b0b533d"; // Define UUID
 let userName = "";
-let visibility = "Todos";
-let destination = "Todos";
+let visibility = "Todos"; // Definido como "Todos" por padrão
+let destination = "Todos"; // Definido como "Todos" por padrão
 
 function promptUserName() {
     userName = prompt("Digite seu lindo nome:");
@@ -37,7 +57,7 @@ function enterRoom() {
         })
         .catch(() => {
             console.log("Nome de usuário já existe, escolha outro.");
-            promptUserName();
+            promptUserName(); // Se o nome já existir, pede novamente
         });
 }
 
@@ -86,25 +106,6 @@ function loadMessages() {
         });
 }
 
-function sendMessage() {
-    const text = document.getElementById("messageInput").value;
-    if (text === "") return;
-
-    const messageData = {
-        from: userName,
-        to: destination,
-        text: text,
-        type: visibility === "Reservadamente" ? "private_message" : "message"
-    };
-
-    axios.post(`https://mock-api.driven.com.br/api/v6/uol/messages/${UUID}`, messageData)
-        .then(() => {
-            document.getElementById("messageInput").value = "";
-            loadMessages();
-        })
-        .catch(() => location.reload());
-}
-
 function loadParticipants() {
     axios.get(`https://mock-api.driven.com.br/api/v6/uol/participants/${UUID}`)
         .then(response => {
@@ -142,9 +143,4 @@ function updateMessageDestination() {
     document.getElementById("messageDestination").textContent = `Enviando para ${destination} (${visibility.toLowerCase()})`;
 }
 
-function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    sidebar.classList.toggle("active");
-}
-
-promptUserName();
+promptUserName(); // Chama a função para pedir o nome do usuário

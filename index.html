@@ -16,9 +16,12 @@
             <img src="imagens/people2.png" alt="Abrir menu" class="imgRight">
         </a>
     </div>
-
+    
+    <!-- Overlay que fecha o menu ao clicar -->
+    <div id="overlay" onclick="toggleSidebar()"></div>
+    
+    <!-- Menu lateral -->
     <div class="menuLateral" id="sidebar">
-        <button onclick="toggleSidebar()">Voltar</button>
         <div class="titulo">Escolha um contato para enviar mensagem:</div>
         <div id="participants-list"></div>
         <div class="titulo">Escolha a visibilidade:</div>
@@ -29,6 +32,9 @@
             <input type="radio" name="visibilidade" onclick="setVisibility('Reservadamente')"> Reservadamente
         </div>
     </div>
+    
+    
+    
 
     <div class="chatContainer" id="chatContainer"></div>
 
@@ -42,7 +48,7 @@
     
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js"> </script>
 </body>
 </html>
 <!-- Rodapé fixo para enviar mensagens -->
